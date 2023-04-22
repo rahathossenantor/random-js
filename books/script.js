@@ -1,3 +1,4 @@
+// This function take secons as an input and 
 const seconsToHour = (seconds) => {
   let minutes = seconds / 60
   let hours = minutes / 60
