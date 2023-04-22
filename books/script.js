@@ -1,15 +1,17 @@
-// This function take secons as an input and 
+// Seconds to hour conversion.
 const seconsToHour = (seconds) => {
   let minutes = seconds / 60
   let hours = minutes / 60
   return hours
 }
 
+// Foot to goj conversion.
 const footToGoj = (foot) => {
   let goj = foot / 3
   return goj
 }
 
+// Goj to mile conversion.
 const gojToMile = (goj) => {
   let mile = goj / 1760
   return mile
@@ -21,104 +23,19 @@ const feetToMile = (feet) => {
   return mile
 }
 
+// Chacking is even number or not.
 const isEvenNumber = (number) => {
   if (number <= 0) {
     return `${number} is an incorrect number!`
   }
-  
   let remainder = number % 2
-  
   if (remainder == 0) {
     return `${number} is an even number.`
   }
-  
   return `${number} is an odd number.`
 }
 
-const fAge = [13,15,18,11,19,14,16,143]
-let maxAge = 0
-for(let i = 0; i < fAge.length; i++){
-  let age = fAge[i]
-  if (age > maxAge) {
-    maxAge = age
-  }
-}
-// console.log(maxAge)
-
-const winterCloths = []
-winterCloths.push('Genji', 'Panjabi', 'Sweter')
-
-const serial = []
-serial.push('Rahat', 'Kader', 'Rahman', 'Yousuf')
-serial.shift()
-serial.shift()
-serial.shift()
-// console.log(serial)
-
-// const person = {
-//   name: "Md Rahat Hossen Antor",
-//   father: "Md Rasel Alam",
-//   mother: "Nazmun Nahar",
-//   nid: 9168082890,
-//   passport: "A06985444",
-//   dateOfBirth: "27/09/2004"
-// }
-// console.log(person.nid)
-
-class Person {
-  constructor(name, nid, passport) {
-    this.name = name,
-    this.nid = nid,
-    this.passport = passport
-  }
-}
-
-const man = new Person('Rahat', 9168082890, 'A06985444');
-// console.log(man)
-
-const students = {}
-
-students[0] = "Hablu"
-students[1] = "Bablu"
-students[2] = "Gablu"
-// console.log(students)
-
-class Node {
-  constructor(value){
-    this.value = value,
-    this.next
-  }
-}
-
-class LinkedList {
-  constructor(head){
-    this.head = head
-  }
-}
-
-const listNode = new Node('amader')
-// console.log(listNode)
-const manobBondhon = new LinkedList(listNode)
-// console.log(manobBondhon)
-
-// const locations = ['Hatirjhil', 'Komolapur', 'Mirpur', 'friendsHouse', 'Gulistan']
-
-// for(let i = 0; i < locations.length; i++){
-//   let jayga = locations[i]
-//   if (jayga == 'friendsHouse') {
-//     console.log('Tomal re paoa gese')
-//     break
-//   }
-// }
-
-const vortas = ['alu vorta', 'dal vorta', 'begun vorta', 'shutki vorta', 'sim vorta']
-// console.log(vortas.indexOf('shutki vorta'))
-
-const notes = [480,780,13,428,907,175,2]
-notes.sort()
-// console.log(notes)
-
-
+// A class that's creat new stores.
 class Store {
   constructor(storeName) {
     this.storeName = storeName,
@@ -193,7 +110,7 @@ class Store {
   }
 }
 
-
+// This function count how many words in a sentents.
 function wordCount(sentence) {
   let count = 0
   for (let i = 0; i < sentence.length; i++) {
@@ -205,6 +122,7 @@ function wordCount(sentence) {
   return count
 }
 
+// This function count how many sentents in a paragraph.
 function sentenceCount(paragraph) {
   let count = 0
   for (let i = 0; i < paragraph.length; i++) {
@@ -215,6 +133,7 @@ function sentenceCount(paragraph) {
   return count
 }
 
+// This function count how many vowels in a sentents.
 function vowelsCount(sentence){
   sentence = sentence.toLowerCase()
   let count = 0
@@ -226,7 +145,7 @@ function vowelsCount(sentence){
   return count
 }
 
-
+// This function remove duplicat elements.
 function removeDuplicate(items){
   const selected = []
   for (let i = 0; i < items.length; i++) {
