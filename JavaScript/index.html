@@ -1,12 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simple Website</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h1>Hello World!</h1>
+  <header>
+    <nav></nav>
+  </header>
+  <main>
+    <section id="container">
+      <h1 id="heading">Simple Website</h1>
+      <div id="container-list">
+        <h3 id="list-heading">Unordered List</h3>
+        <ul id="unordered-list">
+          <li id="first" class="item">List-1</li>
+          <li id="second" class="item">List-2</li>
+          <li id="third" class="item">List-3</li>
+        </ul>
+        <button id="addbtn">Add new item</button>
+      </div>
+    </section>
+  </main>
+  <footer></footer>
+  
+  <script src="./script.js"></script>
+  
+  <!--
+  <script src="./experiment.js"></script>
+  -->
+  
+  <script>
+    const itemParent = document.getElementById('unordered-list')
+    itemParent.addEventListener('click', function(event){
+      event.target.parentNode.removeChild(event.target)
+    })
+    
+    let n = 0
+    const btn = document.getElementById('addbtn')
+    btn.addEventListener('click', function(event){
+      const parent = document.getElementById('unordered-list')
+      const newElement = document.createElement('li')
+      newElement.innerHTML = `Item - ${n}`
+      parent.appendChild(newElement)
+      n++
+    })
+  </script>
 </body>
 </html>

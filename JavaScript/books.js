@@ -39,13 +39,13 @@ const isEvenNumber = (number) => {
 class Store {
   constructor(storeName) {
     this.storeName = storeName,
-    this. products = []
+      this.products = []
     this.prices = {}
     this.stock = {}
     this.totalSales = 0
   }
-  
-  isProductAvailable(productName){
+
+  isProductAvailable(productName) {
     let productIndex = this.products.indexOf(productName)
     if (productIndex === -1) {
       return false
@@ -53,8 +53,8 @@ class Store {
       return true
     }
   }
-  
-  addNewProduct(productName, productQuantity, productPrice){
+
+  addNewProduct(productName, productQuantity, productPrice) {
     let isExist = this.isProductAvailable(productName)
     if (isExist) {
       let available = this.stock[productName]
@@ -65,8 +65,8 @@ class Store {
       this.prices[productName] = productPrice
     }
   }
-  
-  getProductPrice(productName){
+
+  getProductPrice(productName) {
     if (productName === ``) {
       let status = `Please write the product name carefully!`
       return status
@@ -81,13 +81,13 @@ class Store {
       }
     }
   }
-  
-  getTotalSales(){
+
+  getTotalSales() {
     let sales = this.totalSales
     return sales
   }
-  
-  sellProducts(productName, productQuantity){
+
+  sellProducts(productName, productQuantity) {
     let product = this.isProductAvailable(productName)
     let available = this.stock[productName]
     if (!product) {
@@ -97,7 +97,7 @@ class Store {
       if (available < productQuantity) {
         let status = `Sorry! we do not have ${productQuantity} ${productName}!`
         return status
-      } else{
+      } else {
         let productPrice = this.getProductPrice(productName)
         let currentSales = productPrice * productQuantity
         this.totalSales += currentSales
@@ -114,8 +114,8 @@ class Store {
 function wordCount(sentence) {
   let count = 0
   for (let i = 0; i < sentence.length; i++) {
-    if (sentence[i] === " " && sentence[i+1] !== " "){
-    count++
+    if (sentence[i] === " " && sentence[i + 1] !== " ") {
+      count++
     }
   }
   count++
@@ -126,19 +126,19 @@ function wordCount(sentence) {
 function sentenceCount(paragraph) {
   let count = 0
   for (let i = 0; i < paragraph.length; i++) {
-    if (paragraph[i] === "." || paragraph[i] === "?" || paragraph[i] === "!"){
-    count++
+    if (paragraph[i] === "." || paragraph[i] === "?" || paragraph[i] === "!") {
+      count++
     }
   }
   return count
 }
 
 // This function count how many vowels in a sentents.
-function vowelsCount(sentence){
+function vowelsCount(sentence) {
   sentence = sentence.toLowerCase()
   let count = 0
-  for(let i = 0; i < sentence.length; i++){
-    if (sentence[i] === "a" || sentence[i] === "e" || sentence[i] === "i" || sentence[i] === "o" || sentence[i] === "u"){
+  for (let i = 0; i < sentence.length; i++) {
+    if (sentence[i] === "a" || sentence[i] === "e" || sentence[i] === "i" || sentence[i] === "o" || sentence[i] === "u") {
       count++
     }
   }
@@ -146,7 +146,7 @@ function vowelsCount(sentence){
 }
 
 // This function remove duplicat elements.
-function removeDuplicate(items){
+function removeDuplicate(items) {
   const selected = []
   for (let i = 0; i < items.length; i++) {
     let item = items[i]
