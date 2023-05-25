@@ -65,6 +65,7 @@ function highestScorer(info) {
 }
 // console.log(highestScorer(playersInfo))
 
+// Function constructor.
 function Person(name, gender, age, address, lang = null) {
     this.name = name
     this.gender = gender
@@ -80,6 +81,7 @@ function Person(name, gender, age, address, lang = null) {
     }
 }
 
+// Creating new object using function constructor.
 const person = new Person("Md Rahat Hossen Antor", "Male", 18, "Dhaka, Bangladesh", ["Bangla", "English", "Hindi", "Urdu", "Arabic"])
 
 const random = Math.floor(Math.random() * 10) + 11
@@ -267,27 +269,6 @@ function taskFive() {
     })
 }
 
-taskOne().then((response) => {
-    console.log(response)
-}).then(() => {
-    taskTwo().then((response) => {
-        console.log(response)
-    }).then(() => {
-        taskThree().then((response) => {
-            console.log(response)
-        }).then(() => {
-            taskFour().then((response) => {
-                console.log(response)
-            }).then(() => {
-                taskFive().then((response) => {
-                    console.log(response)
-                })
-            })
-        })
-    })
-})
-
-
 taskOne()
     .then(response => console.log(response))
     .then(taskTwo)
@@ -329,63 +310,126 @@ function countVowels(sentence) {
 
 
 {
-// LWS
-function countVowels(sentence) {
-    sentence = sentence.toLowerCase(sentence)
-    sentence = Array.from(sentence)
-    const vowels = ["a", "e", "i", "o", "u"]
-    let counts = 0
-    sentence.forEach(latter => {
-        if (vowels.includes(latter)) {
-            counts++
+    // LWS
+    function countVowels(sentence) {
+        sentence = sentence.toLowerCase(sentence)
+        sentence = Array.from(sentence)
+        const vowels = ["a", "e", "i", "o", "u"]
+        let counts = 0
+        sentence.forEach(latter => {
+            if (vowels.includes(latter)) {
+                counts++
+            }
+        })
+        return counts
+    }
+
+    function searchLetter(arr, letter) {
+        firstIndex = arr.indexOf(letter.toLowerCase())
+        firstIndex = firstIndex >= 0 ? firstIndex : `${letter} not found!`
+        return firstIndex
+    }
+    // console.log(searchLetter(["a", "b", "c"], "a"))
+
+
+    function linearSearch(arr, letter) {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === letter) {
+                return i
+            }
         }
+        return `${letter} not found!`
+    }
+
+    // console.log(linearSearch(["a", "b", "c"], "a"))
+
+    function getLongestWord(words) {
+        let longestWord = ""
+        for (word of words) {
+            if (longestWord.length < word.length) {
+                longestWord = word
+            }
+        }
+        return [words.indexOf(longestWord), longestWord]
+    }
+
+    console.log(getLongestWord(["Bangladesh", "India", "Pakistan", "Afghanistan"]))
+}
+
+// Function to check any number is prime or not.
+function isPrimeNumber(number = 0) {
+    for (let i = 2; i < number; i++) {
+        if (number % i === 0) {
+            return `${number} is not a prime number!`
+        } else {
+            return `${number} is a prime number.`
+        }
+    }
+}
+// console.log(isPrimeNumber(45))
+
+
+// Callback pattern
+const $payment = true
+const $marks = 95
+
+function enrollment(nextStep) {
+    console.log("Your payment is in process...")
+    setTimeout(function () {
+        if ($payment) {
+            nextStep()
+        } else {
+            console.log("Sorry! your payment is not completed!")
+        }
+    }, 2000)
+}
+
+function course(nextStep) {
+    console.log("Your course is started...")
+    setTimeout(function () {
+        if ($marks >= 80) {
+            nextStep()
+        } else {
+            console.log("Sorry! you didn't have pass marks!")
+        }
+    }, 3000)
+}
+
+function getCertificate(nextStep) {
+    console.log("Congratulations! you have finished your course.")
+    setTimeout(function () {
+        if ($marks >= 80) {
+            nextStep()
+        } else {
+            console.log("You don't able to get any job!")
+        }
+    }, 4000)
+}
+
+function getJob() {
+    console.log("Congratulations! you have got your first job!")
+}
+
+// Callback hell
+enrollment(function () {
+    course(function () {
+        getCertificate(function () {
+            getJob()
+        })
     })
-    return counts
-}
-
-function searchLetter(arr, letter) {
-    firstIndex = arr.indexOf(letter.toLowerCase())
-    firstIndex = firstIndex >= 0 ? firstIndex : `${letter} not found!`
-    return firstIndex
-}
-// console.log(searchLetter(["a", "b", "c"], "a"))
-
-
-function linearSearch(arr, letter) {
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] === letter) {
-            return i
-        }
-    }
-    return `${letter} not found!`
-}
-
-// console.log(linearSearch(["a", "b", "c"], "a"))
-
-function getLongestWord(words) {
-    let longestWord = ""
-    for (word of words) {
-        if (longestWord.length < word.length) {
-            longestWord = word
-        }
-    }
-    return [words.indexOf(longestWord), longestWord]
-}
-
-console.log(getLongestWord(["Bangladesh", "India", "Pakistan", "Afghanistan"]))
-}
+})
 
 
 {
-// Chai our code
-const nid = Symbol("symbol")
+    // Chai our code
+    const nid = Symbol("symbol")
 
-const jsUser = {
-    name: "Md Rahat Hossen Antor",
-    email: "md.rahathossenantor@gmail.com",
-    [nid]: "9168082890",
-    greetings: function () {
-        console.log(`Hello ${this.name}!`)
+    const jsUser = {
+        name: "Md Rahat Hossen Antor",
+        email: "md.rahathossenantor@gmail.com",
+        [nid]: "9168082890",
+        greetings: function () {
+            console.log(`Hello ${this.name}!`)
+        }
     }
-}
 }
