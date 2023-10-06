@@ -84,7 +84,7 @@
     let x = 1;
     let sum = 0;
     while (x <= 50) {
-        if (x % 3 == 0 && x % 5 == 0) {
+        if (x % 3 === 0 && x % 5 === 0) {
             console.log(x);
             sum += x;
         }
