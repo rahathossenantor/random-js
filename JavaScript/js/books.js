@@ -39,7 +39,7 @@ const isEvenNumber = (number) => {
 class Store {
   constructor(storeName) {
     this.storeName = storeName,
-      this.products = []
+    this.products = []
     this.prices = {}
     this.stock = {}
     this.totalSales = 0
